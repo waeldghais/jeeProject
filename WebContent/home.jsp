@@ -21,11 +21,15 @@
 		<!-- if Login -->
 	<c:forEach var="name" items="${rs.rows}">
 		<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white"><h3>Welcome: ${name.fname} ${name.lname}</h3>
+<<<<<<< HEAD
 			<form action="./UserController" method="post">
 				<input type="hidden" name="action" value="LogoutUser">
 				<button type="submit" class="btn btn-primary">Logout</button>
 			</form>
 		</div>
+=======
+		<a href="./LogOut">Logout</a></div>
+>>>>>>> a3c3ebcd64ad5af141adf7ead316e8c725ac9d34
 	</c:forEach> 
 	</c:when>
 	<c:when test="${sessionScope.login==null }">

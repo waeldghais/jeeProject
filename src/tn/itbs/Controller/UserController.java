@@ -65,11 +65,14 @@ public class UserController extends HttpServlet {
 				request.getRequestDispatcher("./login.jsp").forward(request, response);
 			}
 		}
+<<<<<<< HEAD
 		if (request.getParameter("action").equals("LogoutUser")) {
 			
 			session.removeAttribute("login");
 			request.getRequestDispatcher("./home.jsp").forward(request, response);
 		}
+=======
+>>>>>>> a3c3ebcd64ad5af141adf7ead316e8c725ac9d34
 	}
 
 }
