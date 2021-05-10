@@ -13,16 +13,17 @@
 	<div class="col p-3 mb-2  text-white" >
   			
 			<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white">
-			<a href="./register.jsp" class="text-white">Register User</a>
-			<a href="./login.jsp" class="text-white">Login User</a>
-			<a href="./home.jsp" class="text-white">Home Page</a>
+			<a href="./RegisterUser.jsp" class="text-white">Register User</a>
+			<a href="./loginuser.jsp" class="text-white">Login User</a>
+			<a href="./loginAdmin.jsp" class="text-white">Login Admin</a>
 			</div>
 		</div> 
 <div class="container " >
 <div class="text-center card bg-primary mb-3">		
-		<form method="post" action="./LoginAdmin" class="center">
+		<form method="post" action="./AdminController" class="center">
 		<div class="center container">
 	<div class="form-group">
+	<input type="hidden" name="action" value="LoginAdmin">
 <label for="exampleInputEmail1">Email</label>
 <input type="email" name="email" class="form-control" >
 </div>

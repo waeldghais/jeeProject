@@ -20,8 +20,11 @@ SELECT * from user where email='${sessionScope.login}';
 </sql:query>  
 		<c:forEach var="name" items="${rs.rows}">
 		<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white"><h3><a href="home.jsp">Welcome:</a> ${name.fname} ${name.lname}</h3>
-		
-		<a href="./LogOut">Logout</a></div>
+		<form action="./UserController" method="post">
+				<input type="hidden" name="action" value="LogoutUser">
+				<button type="submit" class="btn btn-primary">Logout</button>
+			</form>
+		</div>
 		</c:forEach> 
 		 
 		
