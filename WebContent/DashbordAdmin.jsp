@@ -43,6 +43,8 @@ SELECT * from evenment ;
 <th>Descr Even</th>  
 <th>date of Even</th>  
 <th>image</th>
+<th></th>
+<th></th>
 </tr>  
 <c:forEach var="table" items="${rs.rows}">  
 <tr>  
@@ -51,6 +53,8 @@ SELECT * from evenment ;
 <td><c:out value="${table.description}"/></td>  
 <td><c:out value="${table.dateEvn}"/></td>  
 <td><img src=<c:out value="${table.imgEvn}"/>  width="40" height="40"></td> 
+<td><a href="">Update</a></td>
+<td><a href="">Delete</a></td>
 </tr>  
 </c:forEach>  
 </table>
