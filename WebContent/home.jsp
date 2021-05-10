@@ -21,15 +21,13 @@
 		<!-- if Login -->
 	<c:forEach var="name" items="${rs.rows}">
 		<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white"><h3>Welcome: ${name.fname} ${name.lname}</h3>
-<<<<<<< HEAD
+
 			<form action="./UserController" method="post">
 				<input type="hidden" name="action" value="LogoutUser">
 				<button type="submit" class="btn btn-primary">Logout</button>
 			</form>
 		</div>
-=======
-		<a href="./LogOut">Logout</a></div>
->>>>>>> a3c3ebcd64ad5af141adf7ead316e8c725ac9d34
+
 	</c:forEach> 
 	</c:when>
 	<c:when test="${sessionScope.login==null }">
@@ -66,18 +64,18 @@ SELECT * from evenment ;
  <c:forEach var="table" items="${rs.rows}"> 
  <div class="col-md-4 ">			 
   <div class="card text-white bg-primary mb-3" >
-  <img class="card-img-top" src=<c:out value="${table.image}"/> width="200" height="200" alt="Card image cap">
+  <img class="card-img-top" src=<c:out value="${table.imgEvn}"/> width="200" height="200" alt="Card image cap">
   <div class="card-body">
   	<h5 class="card-title">${table.name}</h5>
-    <p class="card-text">${table.descr}</p>
-    <small>${table.date}</small>
+    <p class="card-text">${table.description}</p>
+    <small>${table.dateEvn}</small>
     <br>
     <c:choose>
 	<c:when test="${sessionScope.login!=null }">
 
 	</c:when>
 	</c:choose>
-    <a href="./Feedback?ide=${table.idev}" style="color: red">All Feedback</a>
+    <a href="./CommentaireController?ide=${table.idEvn}" style="color: red">All Feedback</a>
   </div>
 </div>
 </div>

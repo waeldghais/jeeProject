@@ -1,13 +1,22 @@
 package tn.itbs.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="user")
@@ -15,12 +24,13 @@ public class User  implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idUser;
-	public int getIdAdm() {
+	
+	public int getIdUser() {
 		return idUser;
 	}
 
-	public void setIdAdm(int idAdm) {
-		this.idUser = idAdm;
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
 	}
 	@Column(name="fname")
 	private String fname;
@@ -59,6 +69,23 @@ public class User  implements Serializable{
 	public void setPasssword(String passsword) {
 		this.passsword = passsword;
 	}
+	@OneToMany(mappedBy = "user")
+	List<Feedback> ListU = new ArrayList<Feedback>();
+
+	public List<Feedback> getListU() {
+		return ListU;
+	}
+
+	public void setListU(List<Feedback> listU) {
+		ListU = listU;
+	}
+
+	
+	
+	 
+	
+	
+
 	
 
 }

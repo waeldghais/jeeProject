@@ -23,10 +23,9 @@
     <property name="show_sql">true</property>
     <property name="hibernate.show_sql">true</property>
     
-	<mapping class="tn.itbs.entity.Etudiant"/>
-	<mapping class="tn.itbs.entity.Group"/>
+
 	<mapping class="tn.itbs.entity.Admin"/>
-	<mapping class="tn.itbs.entity.Commentaire"/>
+	<mapping class="tn.itbs.entity.Feedback"/>
 	<mapping class="tn.itbs.entity.Evenment"/>
 	<mapping class="tn.itbs.entity.User"/>
     </session-factory>

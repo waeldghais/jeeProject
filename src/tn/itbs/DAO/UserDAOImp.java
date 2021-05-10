@@ -1,6 +1,8 @@
 package tn.itbs.DAO;
 
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -33,6 +35,15 @@ public class UserDAOImp implements UserDAO{
 		}else {
 			return false;
 		}
+	}
+	@Override
+	public void findiduserByemail(String email) {
+		Query q = session.createQuery("from User e where e.Email = :email");
+		q.setParameter("email", email);
+		User us = new User();
+		//us.setIdUser(idUser);
+		System.out.println("eeee");
+	
 	}
 
 }
