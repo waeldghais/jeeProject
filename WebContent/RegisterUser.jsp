@@ -16,7 +16,7 @@
   			
 			<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white">
 			<a href="./home.jsp" class="text-white">Home Page</a>
-			<a href="./login.jsp" class="text-white">Login User</a>
+			<a href="./loginuser.jsp" class="text-white">Login User</a>
 			<a href="./loginAdmin.jsp" class="text-white">Login Admin</a>
 			</div>
 		</div> 
@@ -25,6 +25,7 @@
 
 
 <div class="text-center card bg-primary mb-3">
+<h1>Register User</h1>
 <form method="post" action="./UserController" class="center">
 <input type="hidden" name="action" value="RegisterUser">
 	<div class="center container">

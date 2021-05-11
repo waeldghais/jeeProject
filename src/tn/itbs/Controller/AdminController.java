@@ -17,7 +17,7 @@ import tn.itbs.DAO.UserDAOImp;
 @WebServlet("/AdminController")
 public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	HttpSession session;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -30,15 +30,15 @@ public class AdminController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		session.removeAttribute("loginAdmin");
+		request.getRequestDispatcher("./home.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		 session = request.getSession();
 		AdminDAOImp adimp=new AdminDAOImp();
 		if(request.getParameter("action").equals("LoginAdmin")) {
 			String email=request.getParameter("email");
@@ -50,6 +50,7 @@ public class AdminController extends HttpServlet {
 				request.getRequestDispatcher("./loginAdmin.jsp").forward(request, response);
 			}
 		}
+		
 	}
 
 }

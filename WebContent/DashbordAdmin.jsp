@@ -20,12 +20,12 @@ SELECT * from admin where Email='${sessionScope.loginAdmin}';
 </sql:query>  
 		<c:forEach var="name" items="${rs.rows}">
 		<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white"><h3>Welcome: ${name.fname} ${name.lname}</h3>
-		<a href="./LogoutAdmin">Logout</a></div>
+		<a href="./AdminController">Logout</a></div>
 		</c:forEach> 
-		 <h1>Dashbord Admin</h1>
+		
 
-<form method="get" action="./AddEven">
-
+<form method="post" action="./EvenController"">
+<input type="hidden" name="action" value="goToAddEvn">
 <button type="submit" class="btn btn-primary btn-sm">Add Even</button>
 </form>
 
@@ -54,7 +54,13 @@ SELECT * from evenment ;
 <td><c:out value="${table.dateEvn}"/></td>  
 <td><img src=<c:out value="${table.imgEvn}"/>  width="40" height="40"></td> 
 <td><a href="">Update</a></td>
-<td><a href="">Delete</a></td>
+<td>
+<form class="row g-3" action="./EvenController?idevn=${table.idEvn}" method="post">
+<input type="hidden" name="action" value="delEven">
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Delete</button>
+  </div>
+</form></td>
 </tr>  
 </c:forEach>  
 </table>

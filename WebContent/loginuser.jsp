@@ -13,7 +13,7 @@
 	<div class="col p-3 mb-2  text-white" >
   			
 			<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white">
-			<a href="./register.jsp" class="text-white">Register User</a>
+			<a href="./RegisterUser.jsp" class="text-white">Register User</a>
 			<a href="./home.jsp" class="text-white">Home Page</a>
 			<a href="./loginAdmin.jsp" class="text-white">Login Admin</a>
 			</div>

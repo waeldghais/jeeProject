@@ -15,7 +15,7 @@
 			<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white">
 			<a href="./RegisterUser.jsp" class="text-white">Register User</a>
 			<a href="./loginuser.jsp" class="text-white">Login User</a>
-			<a href="./loginAdmin.jsp" class="text-white">Login Admin</a>
+			<a href="./home.jsp" class="text-white">Home Page</a>
 			</div>
 		</div> 
 <div class="container " >
