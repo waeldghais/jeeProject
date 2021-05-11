@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import tn.itbs.entity.Admin;
+
 public class AdminDAOImp implements AdminDAO {
 	private Session session;
 	public AdminDAOImp() {
@@ -23,6 +25,13 @@ public class AdminDAOImp implements AdminDAO {
 		}else {
 			return false;
 		}
+	}
+	@Override
+	public Admin findAdbyEmail(String ad) {
+		Query query = session.createQuery("from Admin a where a.Email=:email");
+	     query.setParameter("email", ad);
+	     Admin adm=(Admin) query.list().get(0);
+		return adm;
 	}
 
 }

@@ -24,7 +24,8 @@
 		</c:forEach> 
 	
 			<div class="container " >
-				<form method="post" action="./AddEven">
+				<form method="post" action="./EvenController">
+				<input type="hidden" name="action" value="addEven">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Name Even:</label>
 						<input type="text" name="Ename" class="form-control" >

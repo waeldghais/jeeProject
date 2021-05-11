@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -73,7 +74,7 @@ public class Evenment implements Serializable {
 		this.dateEvn = dateEvn;
 	}
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="idAdm")
 	private Admin idAdm;
 
@@ -87,7 +88,8 @@ public class Evenment implements Serializable {
 		this.idAdm = idAdm;
 	}
 
-	@OneToMany(mappedBy = "even")
+	@OneToMany(mappedBy = "even",cascade = CascadeType.ALL)
+	
 	List<Feedback> ListE = new ArrayList<Feedback>();
 	public List<Feedback> getListE() {
 		return ListE;

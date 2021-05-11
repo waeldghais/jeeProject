@@ -3,7 +3,9 @@ package tn.itbs.DAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
+import tn.itbs.entity.Admin;
 import tn.itbs.entity.Evenment;
 
 public class EvenDAOImp implements EvenDAO {
@@ -17,8 +19,14 @@ public class EvenDAOImp implements EvenDAO {
 	}
 	
 	@Override
-	public void addEven(Evenment ev) {
+	public void addEven(Evenment ev,String ad) {
 		session.beginTransaction();
+		Query query = session.createQuery("from Admin a where a.Email=:email");
+	     query.setParameter("email", ad);
+	     
+	     Admin adm=(Admin) query.list().get(0);
+	     
+		ev.setIdAdm(adm);
 		session.save(ev);
 		session.getTransaction().commit();
 		
