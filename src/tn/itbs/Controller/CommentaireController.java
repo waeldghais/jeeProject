@@ -47,7 +47,7 @@ public class CommentaireController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/tpbd","root","0000");
+			con= DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","0000");
 			st = con.createStatement();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

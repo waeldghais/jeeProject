@@ -11,7 +11,7 @@
 </head>
 <body>
 <sql:setDataSource var="db" driver="com.mysql.cj.jdbc.Driver"  
-     url="jdbc:mysql://localhost:3306/tpbd"  
+     url="jdbc:mysql://localhost:3306/test"  
      user="root"  password="0000"/> 
 <c:choose>
 	<c:when test="${sessionScope.login!=null }">

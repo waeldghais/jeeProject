@@ -20,14 +20,11 @@ public class EvenDAOImp implements EvenDAO {
 	}
 	
 	@Override
-	public void addEven(Evenment ev,String ad) {
+	public void addEven(Evenment ev) {
 		session.beginTransaction();
-		Query query = session.createQuery("from Admin a where a.Email=:email");
-	     query.setParameter("email", ad);
+		
 	     
-	     Admin adm=(Admin) query.list().get(0);
-	     
-		ev.setIdAdm(adm);
+		
 		session.save(ev);
 		session.getTransaction().commit();
 		

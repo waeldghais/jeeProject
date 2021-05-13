@@ -11,21 +11,19 @@
 </head>
 <body>
 <sql:setDataSource var="db" driver="com.mysql.cj.jdbc.Driver"  
-     url="jdbc:mysql://localhost:3306/tpbd"  
+     url="jdbc:mysql://localhost:3306/test"  
      user="root"  password="0000"/> 
 <c:choose>
 	<c:when test="${sessionScope.login!=null }">
-	<sql:query dataSource="${db}" var="rs">  
-SELECT * from user where email='${sessionScope.login}';  
-</sql:query>  
-		<c:forEach var="name" items="${rs.rows}">
-		<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white"><h3><a href="home.jsp">Welcome:</a> ${name.fname} ${name.lname}</h3>
+	  
+		
+		<div class="d-flex justify-content-between p-3 mb-2 bg-secondary text-white"><h3><a href="home.jsp">Home</a></h3>
 		<form action="./UserController" method="post">
 				<input type="hidden" name="action" value="LogoutUser">
 				<button type="submit" class="btn btn-primary">Logout</button>
 			</form>
 		</div>
-		</c:forEach> 
+
 		 
 		
 	</c:when>
@@ -42,7 +40,48 @@ SELECT * from user where email='${sessionScope.login}';
 		</c:when>
 	
 	
-</c:choose>     
+</c:choose> 
+    <sql:query dataSource="${db}" var="rss">  
+SELECT * from evenment where idEvn='${param.ide}';
+</sql:query>  
+<c:forEach var="name" items="${rss.rows}">
+<div class="card text-white bg-primary mb-3">
+<div class="card-body">
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <img src="${name.imgEvn}" width="300" height="200">
+    </div>
+    <div class="col-sm">
+      <h3>${name.name}</h3>
+      <p>${name.description}</p>
+      <p>Date: ${name.dateEvn}</p>
+    </div>
+    
+  </div>
+</div>
+	
+    
+   </div>
+  </div>
+	 	
+	 	  
+  		</c:forEach> 
+
+  
+
+<sql:query dataSource="${db}" var="rs">  
+SELECT * from feedback where idevn='${param.ide}';
+</sql:query>  
+		<c:forEach var="name" items="${rs.rows}">
+		<div class="container " >
+			<div class=" card  mb-3">
+			<div class="alert alert-dismissible alert-warning">
+	  			<p class="mb-0">${name.feedback}.</p>
+	 		</div>
+	 	</div>
+	 	    </div>	
+  		</c:forEach> 
   <c:choose>
 	<c:when test="${sessionScope.login!=null }">
 	<div class="container " >
@@ -65,20 +104,5 @@ SELECT * from user where email='${sessionScope.login}';
 </div>
 	</c:when>
 	</c:choose>
-  
-
-<sql:query dataSource="${db}" var="rs">  
-SELECT * from feedback where idevn='${param.ide}';
-</sql:query>  
-		<c:forEach var="name" items="${rs.rows}">
-		<div class="container " >
-			<div class=" card  mb-3">
-			<div class="alert alert-dismissible alert-warning">
-	  			<p class="mb-0">${name.feedback}.</p>
-	 		</div>
-	 	</div>
-	 	    </div>	
-  		</c:forEach> 
-
 </body>
 </html>

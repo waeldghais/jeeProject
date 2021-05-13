@@ -13,7 +13,7 @@
         com.mysql.cj.jdbc.Driver
     </property>
     <property name="hibernate.connection.url">
-        jdbc:mysql://127.0.0.1/tpbd
+        jdbc:mysql://127.0.0.1/test
     </property>
     
     <property name="hibernate.connection.username">root</property> 

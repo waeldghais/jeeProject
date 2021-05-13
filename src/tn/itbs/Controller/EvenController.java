@@ -78,7 +78,7 @@ public class EvenController extends HttpServlet {
 		}
 		if(request.getParameter("action").equals("addEven")) {
 			
-			String emAdmin=(String) session.getAttribute("loginAdmin");
+
 		
 				String Ename=request.getParameter("Ename");
 				String Edescr=request.getParameter("Edescr");
@@ -90,7 +90,7 @@ public class EvenController extends HttpServlet {
 				ev.setImgEvn(Eimage);
 			
 				
-				evImp.addEven(ev,emAdmin);
+				evImp.addEven(ev);
 			
 			
 			request.getRequestDispatcher("./DashbordAdmin.jsp").forward(request, response);

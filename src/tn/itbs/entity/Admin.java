@@ -66,7 +66,17 @@ public class Admin  implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	@OneToMany(mappedBy = "idAdm")
+	@Cascade({CascadeType.SAVE_UPDATE,CascadeType.DELETE})
+	private List<Evenment> admin = new ArrayList<Evenment>();
+	public List<Evenment> getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(List<Evenment> admin) {
+		this.admin = admin;
+	}
+	 
 	
 	
 	

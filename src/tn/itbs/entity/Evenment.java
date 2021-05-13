@@ -21,6 +21,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Type;
 
 
 
@@ -47,6 +48,7 @@ public class Evenment implements Serializable {
 		this.name = name;
 	}
 	@Column(name="description")
+	@Type(type = "text")
 	private String description;	
 	public String getDescription() {
 		return description;
