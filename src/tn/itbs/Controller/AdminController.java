@@ -42,8 +42,9 @@ public class AdminController extends HttpServlet {
 		AdminDAOImp adimp=new AdminDAOImp();
 		if(request.getParameter("action").equals("LoginAdmin")) {
 			String email=request.getParameter("email");
-			String passsword=request.getParameter("password");
-			if (adimp.loginAdmin(email, passsword)) {
+			String password=request.getParameter("password");
+			
+			if (adimp.loginAdmin(email, password)) {
 				session.setAttribute("loginAdmin", email);
 				request.getRequestDispatcher("./DashbordAdmin.jsp").forward(request, response);
 			}else {

@@ -17,6 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 
 @Entity
 @Table(name="user")
@@ -69,18 +71,19 @@ public class User  implements Serializable{
 	public void setPasssword(String passsword) {
 		this.passsword = passsword;
 	}
-	@OneToMany(mappedBy = "user")
-	List<Feedback> ListU = new ArrayList<Feedback>();
-
-	public List<Feedback> getListU() {
-		return ListU;
-	}
-
-	public void setListU(List<Feedback> listU) {
-		ListU = listU;
-	}
-
 	
+
+	 @OneToMany(mappedBy="iduse" )
+	 @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,org.hibernate.annotations.CascadeType.DELETE})
+	    private List<Feedback> users = new ArrayList<>();
+
+	public List<Feedback> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<Feedback> users) {
+		this.users = users;
+	}
 	
 	 
 	

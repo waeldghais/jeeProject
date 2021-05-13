@@ -1,5 +1,7 @@
 package tn.itbs.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,11 +14,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="feedback")
-public class Feedback {
-	
+public class Feedback implements Serializable{
+
 	private int idCom;
-	private User user;
-	private Evenment even;
+	private User iduse;
+	private Evenment idevn;
 	private String feedback;
 	
 	@Id
@@ -31,36 +33,29 @@ public class Feedback {
 	
 	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "iduse") 
-	public User getUser() {
-		return user;
+	public User getIduse() {
+		return iduse;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setIduse(User iduse) {
+		this.iduse = iduse;
 	}
 	
 	
 	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idevn")
-	public Evenment getEven() {
-		return even;
+	public Evenment getIdevn() {
+		return idevn;
 	}
-	public void setEven(Evenment even) {
-		this.even = even;
+	public void setIdevn(Evenment idevn) {
+		this.idevn = idevn;
 	}
+	
 	@Column(name = "feedback")
 	public String getFeedback() {
 		return feedback;
 	}
+	
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
 	}
-	
-	
-	
-	
-
-	
-	
-	
-	
 }

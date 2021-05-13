@@ -53,7 +53,12 @@ SELECT * from evenment ;
 <td><c:out value="${table.description}"/></td>  
 <td><c:out value="${table.dateEvn}"/></td>  
 <td><img src=<c:out value="${table.imgEvn}"/>  width="40" height="40"></td> 
-<td><a href="">Update</a></td>
+<td><form class="row g-3" action="./EvenController?idev=${table.idEvn}" method="post">
+<input type="hidden" name="action" value="goToUpEvn">
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Update</button>
+  </div>
+</form>
 <td>
 <form class="row g-3" action="./EvenController?idevn=${table.idEvn}" method="post">
 <input type="hidden" name="action" value="delEven">

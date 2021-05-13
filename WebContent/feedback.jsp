@@ -53,7 +53,7 @@ SELECT * from user where email='${sessionScope.login}';
 	<form action="./CommentaireController" method="post">
 	
   <div class="form-group">
-   
+   <input type="hidden" name="action" value="addfeed">
     <input type="text" class="form-control" name="Feedback">
   </div>
    

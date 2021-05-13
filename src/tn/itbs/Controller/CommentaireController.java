@@ -71,11 +71,13 @@ public class CommentaireController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		FeedbackDAOImp feed = new FeedbackDAOImp();
+		Feedback fe = new Feedback();
 		String emUser=(String) session.getAttribute("login");
 		String idev = idEvn;
 		int idEvn=Integer.parseInt(idev);  
 		String feedback = request.getParameter("Feedback");
-		String sqlidAdmin= "SELECT * FROM user where email = '"+emUser+"'";
+		String sqlidAdmin= "SELECT * FROM user where Email = '"+emUser+"'";
 		try {
 			rs = st.executeQuery(sqlidAdmin);
 			if(rs.next()) {
@@ -97,7 +99,16 @@ public class CommentaireController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(request.getParameter("action").equals("addfeed")) {
+			
+		}
 		
+		/*String emUser=(String) session.getAttribute("login");
+			//int idEvn=Integer.parseInt(idev);  
+			String feedback = request.getParameter("Feedback");
+			fe.setFeedback(feedback);
+			feed.AddComm(fe, idEvn, emUser);
+			request.getRequestDispatcher("./feedback.jsp").forward(request, response);*/
 		
 	}
 

@@ -15,23 +15,40 @@ public class AdminDAOImp implements AdminDAO {
              .buildSessionFactory();
      session = sessionFactory.openSession();
 	}
-	@Override
-	public boolean loginAdmin(String email, String password) {
-		Query q = session.createQuery("from Admin u where u.Email>:email and u.passsword>:passsword");
-		q.setParameter("email", email);
-		q.setParameter("passsword", password);
-		if(q != null) {
-			return true;
-		}else {
-			return false;
-		}
-	}
+	
 	@Override
 	public Admin findAdbyEmail(String ad) {
-		Query query = session.createQuery("from Admin a where a.Email=:email");
+		Query<Admin> query = session.createQuery("from Admin a where a.Email=:email");
 	     query.setParameter("email", ad);
-	     Admin adm=(Admin) query.list().get(0);
+	     Admin adm=query.list().get(0);
 		return adm;
 	}
+	@Override
+	public boolean loginAdmin(String email, String password) {
+		boolean stat=false;
+		Query q = session.createQuery("from Admin u where u.Email=:email and u.password=:password");
+		q.setParameter("email", email);
+		q.setParameter("password", password);
+		if(q.getFirstResult()!=0) {
+			stat=true;
+		}
+		return true;
+	}
+	/*@Override
+	public long loginAdmin(String email, String password) {
+		long status_id = -1;
+		Query q = session.createQuery("from  Admin a where a.Email=:email and a.password=:password");
+		q.setParameter("email", email);
+		q.setParameter("password", password);
+		if(q.getFirstResult()!=0) {
+			Admin ad = (Admin) q.list().get(0);
+			status_id = ad.getIdAdm();
+		}
+		System.out.println(status_id);
+		
+		return status_id;
+	}*/
+	
+	
 
 }

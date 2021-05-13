@@ -20,6 +20,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 
 
 @Entity
@@ -65,21 +67,19 @@ public class Evenment implements Serializable {
 	}
 	
 	@Column(name="dateEvn")
-	private Date dateEvn ;
-	public Date getDateEvn() {
+	private String dateEvn ;
+	
+	
+	public String getDateEvn() {
 		return dateEvn;
 	}
 
-	public void setDateEvn(Date dateEvn) {
+	public void setDateEvn(String dateEvn) {
 		this.dateEvn = dateEvn;
 	}
-	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="idAdm")
 	private Admin idAdm;
-
-
-	
 	public Admin getIdAdm() {
 		return idAdm;
 	}
@@ -87,17 +87,19 @@ public class Evenment implements Serializable {
 	public void setIdAdm(Admin idAdm) {
 		this.idAdm = idAdm;
 	}
-
-	@OneToMany(mappedBy = "even",cascade = CascadeType.ALL)
 	
-	List<Feedback> ListE = new ArrayList<Feedback>();
-	public List<Feedback> getListE() {
-		return ListE;
+	 @OneToMany(mappedBy="idevn" )
+	 @Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE,org.hibernate.annotations.CascadeType.DELETE})
+	    private List<Feedback> evenment = new ArrayList<>();
+	public List<Feedback> getEvenment() {
+		return evenment;
 	}
 
-	public void setListE(List<Feedback> listE) {
-		ListE = listE;
+	public void setEvenment(List<Feedback> evenment) {
+		this.evenment = evenment;
 	}
+
+	
 	
 	
     
